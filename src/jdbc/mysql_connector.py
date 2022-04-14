@@ -1,4 +1,4 @@
-from src.jdbc.connector import Connector
+from jdbc.connector import Connector
 from mysql.connector.pooling import MySQLConnectionPool, PooledMySQLConnection
 from mysql.connector.errors import Error
 

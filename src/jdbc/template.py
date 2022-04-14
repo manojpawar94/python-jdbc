@@ -1,5 +1,5 @@
 import logging as log
-from src.jdbc.connector import Connector
+from jdbc.connector import Connector
 
 ERROR_LOG_MSG = "error '%s' occurred while executing %s query"
 

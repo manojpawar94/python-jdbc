@@ -1,5 +1,5 @@
 import unittest
-from src.jdbc.mysql_connector import MySQLConnector
+from jdbc.mysql_connector import MySQLConnector
 
 
 class ConnectorTest(unittest.TestCase):
