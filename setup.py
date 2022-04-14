@@ -1,11 +1,12 @@
 import setuptools
+from src import jdbc
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="python-jdbc",
-    version="0.0.1",
+    version=jdbc.__version__,
     author="Manoj Pawar",
     author_email="mmpawar94@gamil.com",
     description="It is an abstraction to execute jdbc queries with minimal code.",
@@ -23,4 +24,9 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
+    entry_points={
+        "console_scripts": [
+            "realpython=jdbc.__main__:main",
+        ]
+    },
 )
