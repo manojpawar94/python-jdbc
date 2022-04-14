@@ -1,20 +1,7 @@
 import logging as log
+from src.jdbc.connector import Connector
 
 ERROR_LOG_MSG = "error '%s' occurred while executing %s query"
-
-
-class DatabaseConnector:
-    def get_connection(self):
-        """It is abstract method. The implementing class must return the connection object."""
-        pass
-
-    def errors_type(self):
-        """It is an abstract method. The implementing class must return the class extending Exception"""
-        pass
-
-    def close_connection(self, connection):
-        """It closes the database connection."""
-        pass
 
 
 def create_and_execute_cursor(connection, query, parameters):
@@ -28,8 +15,8 @@ def create_and_execute_cursor(connection, query, parameters):
 
 class JdbcTemplate:
 
-    def __init__(self, database_connector):
-        self.database_connector = database_connector
+    def __init__(self, connector: Connector):
+        self.database_connector = connector
 
     def query_for_tuple(self, query, parameters=()):
         """It executes query and returns database record as a tuple."""

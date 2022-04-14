@@ -1,9 +1,9 @@
-from src.jdbc.database import DatabaseConnector
+from src.jdbc.connector import Connector
 from mysql.connector.pooling import MySQLConnectionPool, PooledMySQLConnection
 from mysql.connector.errors import Error
 
 
-class MySQLConnector(DatabaseConnector):
+class MySQLConnector(Connector):
 
     def __init__(self, config, pool_name="default_pool", pool_size=10):
         self.__connPool = MySQLConnectionPool(pool_name=pool_name,
