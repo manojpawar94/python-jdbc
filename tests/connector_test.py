@@ -2,7 +2,7 @@ import unittest
 from src.jdbc.mysql_connector import MySQLConnector
 
 
-class DatabaseConnectorTest(unittest.TestCase):
+class ConnectorTest(unittest.TestCase):
     __dbConfig = {
         "host": "localhost",
         "port": 3306,
@@ -11,7 +11,7 @@ class DatabaseConnectorTest(unittest.TestCase):
         "password": ""
     }
 
-    def test_something(self):
+    def test_MySQLConnector(self):
         mysql_conn = MySQLConnector(self.__dbConfig)
         self.assertIsNotNone(mysql_conn, "MySQL connection object must be initialized")  # add assertion here
 
