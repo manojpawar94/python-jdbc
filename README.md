@@ -22,20 +22,20 @@ mysql_conn = MySQLConnector(config)
 jdbcTemplate = JdbcTemplate(mysql_conn)
 
 # query to retrieve tuple
-jdbcTemplate.query_for_tuple("select * from users where user_id = ? ", 1234)
+jdbcTemplate.query_for_tuple("select * from users where user_id = %s ", (1234,))
 
 # query to retrieve list of tuples
-jdbcTemplate.query_for_tuple_list("select * from users where is_active = ?", 'A')
+jdbcTemplate.query_for_tuple_list("select * from users where is_active = %s", ('A',))
 
 # query to retrieve dictionary 
-jdbcTemplate.query_for_dict("select * from users where user_id = ? ", 1234)
+jdbcTemplate.query_for_dict("select * from users where user_id = %s", (1234,))
 
 # query to retrieve list of dictionary
-jdbcTemplate.query_for_dict_list("select * from users where is_active = ?", 'A')
+jdbcTemplate.query_for_dict_list("select * from users where is_active = %s", ('A',))
 
 # query to insert record
-jdbcTemplate.update("Insert into users (first_nam, last_nam) values (?, ?)", "Manoj", "Pawar")
+jdbcTemplate.update("Insert into users (first_nam, last_nam) values (%s, %s)", ("Manoj", "Pawar"))
 
 # query to update record
-jdbcTemplate.update("Update users set is_activev = ? where user_id = ?", 'A', 1234)
+jdbcTemplate.update("Update users set is_activev = %s where user_id = %s", ('A', 1234))
 ```
